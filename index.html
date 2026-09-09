@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18378746941"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Configuración base de tu cuenta
+  gtag('config', 'AW-18378746941');
+
+  // Fragmento de evento para "Clic a App Store"
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18378746941/zm0yCPu_s_IcEL3Y1btE',
+        'event_callback': callback
+    });
+    return false;
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HarasID — La app para gestionar tu haras</title>
@@ -813,6 +836,9 @@ footer{border-top:1px solid var(--linea);padding-top:30px;padding-bottom:34px;fo
     botonesIOS[bi].setAttribute('href', URL_APP_STORE);
     botonesIOS[bi].setAttribute('target', '_blank');
     botonesIOS[bi].setAttribute('rel', 'noopener');
+    botonesIOS[bi].addEventListener('click', function() {
+      gtag_report_conversion();
+    });
   }
 
   /* ---------- header ---------- */
